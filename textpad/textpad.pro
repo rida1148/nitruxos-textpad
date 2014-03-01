@@ -1,20 +1,15 @@
-# Add more folders to ship with the application, here
-folder_01.source = qml/textpad
-folder_01.target = qml
-DEPLOYMENTFOLDERS = folder_01
+TEMPLATE = lib
+CONFIG += plugin
+QT += qml quick
 
-# Additional import path used to resolve QML modules in Creator's code model
-QML_IMPORT_PATH =
+DESTDIR = File
+TARGET = filereaderplugin
 
-# The .cpp file which was generated for your project. Feel free to hack it.
-SOURCES += main.cpp
+OBJECTS_DIR = tmp
+MOC_DIR = tmp
 
-# Installation path
-# target.path =
+HEADERS += fileIO.h fileIOPlugin.h
 
-# Please do not modify the following two lines. Required for deployment.
-include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
-qtcAddDeployment()
+SOURCES += fileIO.cpp fileIOPlugin.cpp
 
-OTHER_FILES += \
-    qml/textpad/DocumentFileDialog.qml
+OTHER_FILES += app.qml

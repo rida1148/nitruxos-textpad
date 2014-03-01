@@ -17,7 +17,7 @@ Item {
     FileDialog {
         id: qmlFileDialog
         modality: Qt.WindowModal
-        nameFilters: ["Text File (*.txt *.rtf *.html)"]
+        nameFilters: ["Text File (*.txt *.rtf *.html *.h *.cpp)"]
 
         onAccepted: root.accepted()
         onRejected: root.rejected()

@@ -2,6 +2,7 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Window 2.1
+import File 1.0
 
 ApplicationWindow {
     id: root
@@ -12,6 +13,10 @@ ApplicationWindow {
     minimumHeight: textArea.implicitHeight
     title: "Textpad"
 
+
+    FileIO {
+        id: fileio
+    }
 
     TextArea {
         id: textArea
@@ -61,6 +66,8 @@ ApplicationWindow {
                     console.log("Canceled")
                 }
                 onAccepted: {
+                    fileio.setPath(fileUrl)
+                    textArea.text = fileio.read()
                     console.log("File selected: " + fileUrl)
                 }
             }
