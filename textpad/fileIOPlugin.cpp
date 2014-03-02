@@ -1,4 +1,3 @@
-#pragma once
 #include "fileIOPlugin.h"
 #include "fileIO.h"
 #include <qqml.h>
