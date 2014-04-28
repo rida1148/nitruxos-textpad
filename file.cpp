@@ -1,4 +1,4 @@
-#include "fileIO.h"
+#include "file.h"
 
 #include <QUrl>
 #include <QTextStream>
@@ -6,29 +6,29 @@
 #include <QFile>
 #include <QFileInfo>
 
-void FileIO::setPath(const QString &fileURL) {
+void File::setPath(const QString &fileURL) {
     QUrl LocalURL(fileURL);
     this->filePath = LocalURL.toLocalFile();
 };
 
-bool FileIO::isReadable()
+bool File::isReadable()
 {
     return QFileInfo(this->filePath).isReadable();
 }
 
-QString FileIO::read(const QString &path)
+QString File::read(const QString &path)
 {    
     QFile file(path);
 
     return file.readAll();
 }
 
-bool FileIO::isWritable()
+bool File::isWritable()
 {
     return QFileInfo(this->filePath).isWritable();
 }
 
-bool FileIO::write(const QString &data) {
+bool File::write(const QString &data) {
 
     QFile file(this->filePath);
     bool writeable = file.open(QIODevice::Append | QIODevice::Text);

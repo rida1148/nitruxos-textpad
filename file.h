@@ -2,7 +2,7 @@
 #include <QObject>
 
 
-class FileIO : public QObject
+class File : public QObject
 {
     Q_OBJECT
 

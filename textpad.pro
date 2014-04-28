@@ -1,4 +1,4 @@
 QT += qml quick
 
-SOURCES += main.cpp fileIO.cpp
-HEADERS += fileIO.h
+SOURCES += main.cpp file.cpp
+HEADERS += file.h
