@@ -10,6 +10,7 @@ class FileIO : public QObject
 public slots:
 
     void setPath(const QString &fileURL);
+    bool isReadable();
     QString read();
     bool write(const QString &data);
 };

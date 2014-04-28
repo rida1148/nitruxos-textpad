@@ -4,22 +4,23 @@
 #include <QTextStream>
 #include <iostream>
 #include <QFile>
+#include <QFileInfo>
 
 void FileIO::setPath(const QString &fileURL) {
     QUrl LocalURL(fileURL);
     this->filePath = LocalURL.toLocalFile();
 };
 
+bool FileIO::isReadable()
+{
+    return QFileInfo(this->filePath).isReadable();
+}
+
 QString FileIO::read()
 {    
     QFile file(this->filePath);
-    bool readable = file.open(QIODevice::ReadOnly | QIODevice::Text);
 
-    if (readable) {
-        return QString(file.readAll());
-    }
-
-    return QString("ERROR NO DATA READ");
+    return QString(file.readAll());
 }
 
 bool FileIO::write(const QString &data) {
