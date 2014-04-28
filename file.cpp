@@ -6,39 +6,28 @@
 #include <QFile>
 #include <QFileInfo>
 
-void File::setPath(const QString &fileURL) {
-    QUrl LocalURL(fileURL);
-    this->filePath = LocalURL.toLocalFile();
-};
-
-bool File::isReadable()
+bool File::isReadable(const QString &path)
 {
-    return QFileInfo(this->filePath).isReadable();
+    return QFileInfo(path).isReadable();
 }
 
 QString File::read(const QString &path)
-{    
+{
     QFile file(path);
-
     return file.readAll();
 }
 
-bool File::isWritable()
+bool File::isWritable(const QString &path)
 {
-    return QFileInfo(this->filePath).isWritable();
+    return QFileInfo(path).isWritable();
 }
 
-bool File::write(const QString &data) {
+bool File::write(const QString &path, const QString &data) {
 
-    QFile file(this->filePath);
-    bool writeable = file.open(QIODevice::Append | QIODevice::Text);
+    QFile file(path);
 
-    if (writeable) {
-        QTextStream stream(&file);
-        stream << data;
+    QTextStream stream(&file);
+    stream << data;
 
-        return true;
-    }
-    return false;
- 
-};
+    return true;
+}

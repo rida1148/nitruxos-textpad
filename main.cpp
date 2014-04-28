@@ -1,14 +1,11 @@
-// C++ header to include for using qmlRegisterType();
-#include <QtQml>            // If you use Qt5
-
-
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickWindow>
+#include <QQmlContext>
 
-#include "file.h"    // Your FileIO C++ class
+#include "file.h"
 
-Q_DECL_EXPORT int main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;

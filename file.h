@@ -1,17 +1,14 @@
 #pragma once
-#include <QObject>
 
+#include <QObject>
 
 class File : public QObject
 {
     Q_OBJECT
 
-    QString filePath;
 public slots:
-
-    void setPath(const QString &fileURL);
-    bool isReadable();
+    bool isReadable(const QString &path);
     QString read(const QString &path);
-    bool isWritable();
-    bool write(const QString &data);
+    bool isWritable(const QString &path);
+    bool write(const QString &path, const QString &data);
 };
