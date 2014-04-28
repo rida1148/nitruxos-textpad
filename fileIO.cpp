@@ -23,6 +23,11 @@ QString FileIO::read()
     return file.readAll();
 }
 
+bool FileIO::isWritable()
+{
+    return QFileInfo(this->filePath).isWritable();
+}
+
 bool FileIO::write(const QString &data) {
 
     QFile file(this->filePath);

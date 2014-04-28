@@ -12,5 +12,6 @@ public slots:
     void setPath(const QString &fileURL);
     bool isReadable();
     QString read();
+    bool isWritable();
     bool write(const QString &data);
 };
