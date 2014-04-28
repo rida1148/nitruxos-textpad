@@ -20,7 +20,7 @@ QString FileIO::read()
 {    
     QFile file(this->filePath);
 
-    return QString(file.readAll());
+    return file.readAll();
 }
 
 bool FileIO::write(const QString &data) {
