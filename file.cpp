@@ -13,7 +13,8 @@ bool File::isReadable(const QString &path)
 
 QString File::read(const QString &path)
 {
-    QFile file(path);
+    QFile file(QUrl(path).toLocalFile());
+    file.open(QFile::ReadOnly);
     return file.readAll();
 }
 
@@ -24,7 +25,8 @@ bool File::isWritable(const QString &path)
 
 bool File::write(const QString &path, const QString &data) {
 
-    QFile file(path);
+    QFile file(QUrl(path).toLocalFile());
+    file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate);
 
     QTextStream stream(&file);
     stream << data;
