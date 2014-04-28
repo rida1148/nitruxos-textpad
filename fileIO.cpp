@@ -16,9 +16,9 @@ bool FileIO::isReadable()
     return QFileInfo(this->filePath).isReadable();
 }
 
-QString FileIO::read()
+QString FileIO::read(const QString &path)
 {    
-    QFile file(this->filePath);
+    QFile file(path);
 
     return file.readAll();
 }

@@ -13,10 +13,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
 
-     // Declaring your C++ class to the QML system
-    qmlRegisterType<FileIO, 1>("FileIO", 1, 0, "FileIO");
-
-
+    engine.rootContext()->setContextProperty("File", new FileIO());
     engine.load(QUrl("qml/textpad/main.qml"));
+
     return app.exec();
 }
