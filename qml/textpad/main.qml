@@ -41,8 +41,8 @@ ApplicationWindow {
             y: 8
             width: 32
             height: 32
-            iconSource: "icons/document-open.svg"
-            iconName: "document-open"
+            iconSource: "icons/document-new.svg"
+            iconName: "document-new"
         }
 
         Button {
@@ -51,8 +51,8 @@ ApplicationWindow {
             y: 46
             width: 32
             height: 32
-            iconSource: "icons/document-save.svg"
-            iconName: "document-save"
+            iconSource: "icons/document-open.svg"
+            iconName: "document-open"
             DocumentFileDialog {
                 id: saveFileDialog
                 title: qsTr("Save to ...")
